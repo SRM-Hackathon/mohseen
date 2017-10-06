@@ -1,0 +1,41 @@
+from Tkinter import *
+import serial
+import cv2
+import numpy as np
+import math
+import os
+import time
+class Application(Frame):
+
+  
+    def __init__(self,master):
+        Frame.__init__(self,master)
+        self.grid()
+        self.create_widgets()
+
+    def create_widgets(self):
+
+
+        self.instruction = Label(self,
+            font= "Helvetica 11 bold",
+            text="Enter the password")
+         self.instruction.grid(row=0,column=0,columnspan=1,sticky=E)
+
+        self.password = Entry(self)
+        self.password.grid(row=0,column=1,sticky=W)
+
+        self.submit_button= Button(self,
+            text        ="submit",width = 10,
+            height     = 1,
+            bg        = '#%x%x%x'%(96,151,225),
+            bd             = 2,
+            relief         = "raised",
+            font           = "Helvetica 12 bold",
+            fg             = "white", command=self.reveal)
+        self.submit_button.grid(row=2,column=0,sticky=W)
+
+        self.text = Text(self,width=15,height=2,wrap=WORD)
+        self.text.grid(row=2,column=1,columnspan=2,sticky=W)
+
+
+   
