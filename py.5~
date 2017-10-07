@@ -115,5 +115,23 @@ class Application(Frame):
                         cv2.circle(crop_img,far,1,[0,0,255],-1)
         #dist = cv2.pointPolygonTest(cnt,far,True)
                 cv2.line(crop_img,start,end,[0,255,0],2)
+ #cv2.circle(crop_img,far,5,[0,0,255],-1)
+                if count_defects == 1:
+                    cv2.putText(img,"Bulb On", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+                print "1"
+                serial_port.write('T000xxxxxx')
+                elif count_defects == 2:
+                    str = "Bulb Off"
+                    cv2.putText(img, str, (5,50), cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
+                print "2"
+                serial_port.write('S000xxxxxx')
+
+                elif count_defects == 4:
+                    cv2.putText(img,"SMS", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+                print "3"
+                serial_port.write('I000xxxxxx')
+                self.input= serial_port.read(4)
+                print self.input
+
 
    
