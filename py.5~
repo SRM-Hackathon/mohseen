@@ -132,6 +132,15 @@ class Application(Frame):
                 serial_port.write('I000xxxxxx')
                 self.input= serial_port.read(4)
                 print self.input
+  os.system("./sms.sh")
+                time.sleep(10)
 
+                elif count_defects == 3:
+                       cv2.putText(img,"Hi!!!", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+                print "4"
+               else:
+                    cv2.putText(img,"Hello World!!!", (50,50),\
+                            cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+                print "hii"
 
    
