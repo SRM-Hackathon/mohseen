@@ -142,5 +142,22 @@ class Application(Frame):
                     cv2.putText(img,"Hello World!!!", (50,50),\
                             cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
                 print "hii"
+ #cv2.imshow('drawing', drawing)
+    #cv2.imshow('end', crop_img)
+                cv2.imshow('Gesture', img)
+                all_img = np.hstack((drawing, crop_img))
+                cv2.imshow('Contours', all_img)
+               k = cv2.waitKey(10)
+               if k == 27:
+                  break
+
+
+root = Tk()
+root.title("Gesture Based Device Control")
+root.geometry("350x100")
+
+app = Application(root)
+
+root.mainloop()
 
    
